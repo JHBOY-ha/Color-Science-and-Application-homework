@@ -71,8 +71,6 @@ def pdf_safe(text):
 # 读取计算结果
 with open(OUTPUT_DIR / "results.json", "r", encoding="utf-8") as f:
     R = json.load(f)
-# 修正姓名
-R['student_name'] = '姜淏'
 
 # ============================================================
 # 样式定义
@@ -130,12 +128,12 @@ style_caption = ParagraphStyle(
 # ============================================================
 # 读取数据
 # ============================================================
-xlsx_path = SCRIPT_DIR / "副本PhotoResearch_Raw_Data.xlsx"
+xlsx_path = SCRIPT_DIR / "data" / "副本PhotoResearch_Raw_Data.xlsx"
 df_raw = pd.read_excel(xlsx_path, sheet_name="PhotoResearch_Raw_Data")
 wavelengths = df_raw.columns[3:].astype(int).values
 spd_values = np.array([float(v) for v in df_raw.iloc[0, 3:].values])
 
-cmf_data = np.loadtxt(SCRIPT_DIR / "cie1931_cmf_1nm.csv", delimiter=',')
+cmf_data = np.loadtxt(SCRIPT_DIR / "data" / "cie1931_cmf_1nm.csv", delimiter=',')
 mask = (cmf_data[:, 0] >= 380) & (cmf_data[:, 0] <= 780)
 cmf_vis = cmf_data[mask]
 x_bar = cmf_vis[:, 1]

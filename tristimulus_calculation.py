@@ -34,12 +34,12 @@ print("=" * 60)
 print("步骤 1：读取 PhotoResearch PR-788 原始测量数据")
 print("=" * 60)
 
-xlsx_path = SCRIPT_DIR / "副本PhotoResearch_Raw_Data.xlsx"
+xlsx_path = SCRIPT_DIR / "data" / "副本PhotoResearch_Raw_Data.xlsx"
 df_raw = pd.read_excel(xlsx_path, sheet_name="PhotoResearch_Raw_Data")
 
 # 提取学号和姓名
 student_id = df_raw.iloc[0, 0]
-student_name = "姜淏"  # 修正姓名
+student_name = df_raw.iloc[0, 1]
 print(f"学号: {student_id}, 姓名: {student_name}")
 
 # 提取波长和光谱功率分布
@@ -68,7 +68,7 @@ print("=" * 60)
 print("数据来源: http://cvrl.ioo.ucl.ac.uk/cmfs.htm")
 print("文件: CIE 1931 2-deg, XYZ CMFs, 1 nm 间隔")
 
-cmf_path = SCRIPT_DIR / "cie1931_cmf_1nm.csv"
+cmf_path = SCRIPT_DIR / "data" / "cie1931_cmf_1nm.csv"
 cmf_data = np.loadtxt(cmf_path, delimiter=',')
 cmf_wavelengths = cmf_data[:, 0].astype(int)
 cmf_x = cmf_data[:, 1]
