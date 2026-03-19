@@ -39,7 +39,7 @@ df_raw = pd.read_excel(xlsx_path, sheet_name="PhotoResearch_Raw_Data")
 
 # 提取学号和姓名
 student_id = df_raw.iloc[0, 0]
-student_name = df_raw.iloc[0, 1]
+student_name = "姜淏"  # 修正姓名
 print(f"学号: {student_id}, 姓名: {student_name}")
 
 # 提取波长和光谱功率分布
