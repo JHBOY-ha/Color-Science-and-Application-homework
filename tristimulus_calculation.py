@@ -34,7 +34,7 @@ print("=" * 60)
 print("步骤 1：读取 PhotoResearch PR-788 原始测量数据")
 print("=" * 60)
 
-xlsx_path = SCRIPT_DIR / "data" / "副本PhotoResearch_Raw_Data.xlsx"
+xlsx_path = SCRIPT_DIR / "data" / "PhotoResearch_Raw_Data.xlsx"
 df_raw = pd.read_excel(xlsx_path, sheet_name="PhotoResearch_Raw_Data")
 
 # 提取学号和姓名
