@@ -128,7 +128,7 @@ style_caption = ParagraphStyle(
 # ============================================================
 # 读取数据
 # ============================================================
-xlsx_path = SCRIPT_DIR / "data" / "副本PhotoResearch_Raw_Data.xlsx"
+xlsx_path = SCRIPT_DIR / "data" / "PhotoResearch_Raw_Data.xlsx"
 df_raw = pd.read_excel(xlsx_path, sheet_name="PhotoResearch_Raw_Data")
 wavelengths = df_raw.columns[3:].astype(int).values
 spd_values = np.array([float(v) for v in df_raw.iloc[0, 3:].values])
